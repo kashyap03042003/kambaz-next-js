@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-
 export default function Lab1() {
     return (
         <div className="wd-lab1">

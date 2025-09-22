@@ -1,16 +1,20 @@
 import { ReactNode } from "react";
 import CourseNavigation from "./Navigation";
 
+type ParamsType = { cid: string } | Promise<{ cid: string }>;
+type ResolvedParams = { cid?: string; id?: string };
 
-export default async function CoursesLayout(props: any) {
-  const { children } = props;
 
-  let params = props.params;
-  if (params && typeof params.then === "function") {
-    params = await params;
-  }
+export default async function CoursesLayout({
+  children,
+  params,
+}: {
+  children: ReactNode;
+  params: ParamsType;
+}) {
+  const resolvedParams = (await Promise.resolve(params)) as ResolvedParams;
 
-  const cid = params?.cid ?? params?.id ?? "unknown";
+  const cid = resolvedParams.cid ?? resolvedParams.id ?? "unknown";
 
   return (
     <div id="wd-courses">
