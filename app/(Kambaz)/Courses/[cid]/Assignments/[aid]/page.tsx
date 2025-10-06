@@ -1,7 +1,8 @@
 'use client';
-import { Button, Col, FormCheck, FormControl, FormLabel, FormSelect, InputGroup, Row, Table } from "react-bootstrap";
+import { Button, Col, FormCheck, FormControl, FormLabel, FormSelect, InputGroup, Row } from "react-bootstrap";
 import InputGroupText from "react-bootstrap/esm/InputGroupText";
 import { CiCalendar } from "react-icons/ci";
+
 export default function AssignmentEditor() {
   return (
     <div id="wd-assignments-editor">
@@ -26,7 +27,9 @@ export default function AssignmentEditor() {
         The Kambaz application should include a link to navigate back to the landing page.
       </div>
       <br /><br />
-      <Table className="gap-4">
+
+      {/* ERROR 2 FIX: Removed the incorrect <Table> wrapper */}
+      <div>
         <Row className="mb-4">
           <Col className="text-end me-1">
             Points
@@ -93,21 +96,22 @@ export default function AssignmentEditor() {
                 Due
               </FormLabel>
               <InputGroup className="mb-2">
-                <FormControl type="date" placeholder="May 13, 2024, 11:59 PM" />
+                <FormControl type="datetime-local" placeholder="May 13, 2024, 11:59 PM" defaultValue="2024-05-13T23:59" />
                 <InputGroupText><CiCalendar /></InputGroupText>
               </InputGroup>
               <Row>
                 <Col>
                   <FormLabel className="fw-bold">Available from</FormLabel>
                   <InputGroup className="mb-2">
-                    <FormControl type="date" placeholder="May 6, 2024, 12:00 AM" />
+                    <FormControl type="datetime-local" placeholder="May 6, 2024, 12:00 AM" defaultValue="2024-05-13T23:59" />
                     <InputGroupText><CiCalendar /></InputGroupText>
                   </InputGroup>
                 </Col>
                 <Col>
                   <FormLabel className="fw-bold">Until</FormLabel>
                   <InputGroup className="mb-2">
-                    <FormControl type="date" placeholder="" />
+                    {/* ERROR 1 FIX: Added missing closing quote */}
+                    <FormControl type="datetime-local" defaultValue="2024-05-13T23:59" />
                     <InputGroupText><CiCalendar /></InputGroupText>
                   </InputGroup>
                 </Col>
@@ -115,7 +119,7 @@ export default function AssignmentEditor() {
             </div>
           </Col>
         </Row>
-      </Table>
+      </div>
       <hr />
       <div className="d-flex justify-content-end">
         <Button variant="secondary" className="rounded-sm me-1" >

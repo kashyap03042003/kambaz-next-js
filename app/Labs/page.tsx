@@ -4,7 +4,7 @@ export default function Labs() {
   return (
     <div id="wd-labs">
       <p>
-        <strong>Submitted by:</strong> Krishna Kashyap Pasumarthi<br />
+        <strong>Submitted by:</strong> Sri Krishna Kashyap Pasumarthi<br />
         <strong>Subject:</strong> Web Development<br />
         <strong>Section:</strong> 04
       </p>
