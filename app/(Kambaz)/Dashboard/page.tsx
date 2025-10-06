@@ -1,90 +1,58 @@
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
+import { Row, Col, Card, Button } from "react-bootstrap";
+
+
+const courses = [
+  { title: "CS1 HTML5", img: "/images/HTML5.png" },
+  { title: "CS2 CSS3", img: "/images/css3.jpg" },
+  { title: "CS3 JavaScript", img: "/images/javascript.jpg" },
+  { title: "CS4 React JS", img: "/images/reactjs.jpg" },
+  { title: "CS5 Node.js", img: "/images/nodejs.jpg" },
+  { title: "CS6 Mongodb", img: "/images/mongodb.jpg" },
+  { title: "CS7 Devops", img: "/images/devops.jpg" },
+  { title: "CS8 CyberSecurity", img: "/images/security.jpg" },
+];
+
 
 export default function Dashboard() {
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1>
       <hr />
-      <h2 id="wd-dashboard-published">Published Courses (7)</h2>
+      <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
       <hr />
+
       <div id="wd-dashboard-courses">
-        <div className="wd-dashboard-course">
-          <Link href="/Courses/CS1234" className="wd-dashboard-course-link">
-            <Image src="/images/reactjs.jpg" alt="React.js" width={200} height={150} />
-            <div>
-              <h5>CS1234 React JS</h5>
-              <p className="wd-dashboard-course-title">Full Stack software developer</p>
-              <button>Go</button>
-            </div>
-          </Link>
-        </div>
-
-        <div className="wd-dashboard-course">
-          <Link href="/Courses/CS2345" className="wd-dashboard-course-link">
-            <Image src="/images/nodejs.jpg" alt="Node.js" width={200} height={150} />
-            <div>
-              <h5>CS2345 Node.js</h5>
-              <p className="wd-dashboard-course-title">Building RESTful APIs</p>
-              <button>Go</button>
-            </div>
-          </Link>
-        </div>
-
-        <div className="wd-dashboard-course">
-          <Link href="/Courses/CS3456" className="wd-dashboard-course-link">
-            <Image src="/images/mongodb.jpg" alt="Databases" width={200} height={150} />
-            <div>
-              <h5>CS3456 Databases</h5>
-              <p className="wd-dashboard-course-title">MongoDB & SQL Fundamentals</p>
-              <button>Go</button>
-            </div>
-          </Link>
-        </div>
-
-        <div className="wd-dashboard-course">
-          <Link href="/Courses/CS4567" className="wd-dashboard-course-link">
-            <Image src="/images/css3.jpg" alt="CSS" width={200} height={150} />
-            <div>
-              <h5>CS4567 CSS</h5>
-              <p className="wd-dashboard-course-title">Layouts & Responsive Design</p>
-              <button>Go</button>
-            </div>
-          </Link>
-        </div>
-
-        <div className="wd-dashboard-course">
-          <Link href="/Courses/CS5678" className="wd-dashboard-course-link">
-            <Image src="/images/javascript.jpg" alt="JavaScript" width={200} height={150} />
-            <div>
-              <h5>CS5678 JavaScript</h5>
-              <p className="wd-dashboard-course-title">ES6+ and Frontend Logic</p>
-              <button>Go</button>
-            </div>
-          </Link>
-        </div>
-
-        <div className="wd-dashboard-course">
-          <Link href="/Courses/CS6789" className="wd-dashboard-course-link">
-            <Image src="/images/devops.jpg" alt="DevOps" width={200} height={150} />
-            <div>
-              <h5>CS6789 DevOps</h5>
-              <p className="wd-dashboard-course-title">CI/CD and Deployment</p>
-              <button>Go</button>
-            </div>
-          </Link>
-        </div>
-
-        <div className="wd-dashboard-course">
-          <Link href="/Courses/CS7890" className="wd-dashboard-course-link">
-            <Image src="/images/security.jpg" alt="Security" width={200} height={150} />
-            <div>
-              <h5>CS7890 Security</h5>
-              <p className="wd-dashboard-course-title">Web Security & Best Practices</p>
-              <button>Go</button>
-            </div>
-          </Link>
-        </div>
+        {/* xs=1 (phones), md=4 (desktops). Use g-4 for spacing between cards */}
+        <Row xs={1} md={4} className="g-4">
+          {courses.map((c, i) => (
+            <Col key={i} className="wd-dashboard-course" style={{ width: "300px" }}>
+              <Card>
+                {/* Per spec: send all to the same course's Home page for now */}
+                <Link
+                  href="/Courses/1234/Home"
+                  className="wd-dashboard-course-link text-decoration-none text-dark"
+                >
+                  <Card.Img variant="top" src={c.img} width="100%" height={160} />
+                  <Card.Body>
+                    <Card.Title className="wd-dashboard-course-title text-nowrap overflow-hidden">
+                      {c.title}
+                    </Card.Title>
+                    <Card.Text
+                      className="wd-dashboard-course-description overflow-hidden"
+                      style={{ height: "100px" }}
+                    >
+                      Full Stack web developer
+                    </Card.Text>
+                    <Button variant="primary">Go</Button>
+                  </Card.Body>
+                </Link>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </div>
     </div>
   );

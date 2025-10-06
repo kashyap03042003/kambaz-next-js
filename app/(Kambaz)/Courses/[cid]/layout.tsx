@@ -1,37 +1,27 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import CourseNavigation from "./Navigation";
 
-type ParamsType = { cid: string } | Promise<{ cid: string }>;
-type ResolvedParams = { cid?: string; id?: string };
-
-
-export default async function CoursesLayout({
-  children,
-  params,
-}: {
+type Props = {
   children: ReactNode;
-  params: ParamsType;
-}) {
-  const resolvedParams = (await Promise.resolve(params)) as ResolvedParams;
+  params: Promise<{ cid: string }>; 
+};
 
-  const cid = resolvedParams.cid ?? resolvedParams.id ?? "unknown";
+export default async function CoursesLayout({ children, params }: Props) {
+  const { cid } = await params;
 
   return (
     <div id="wd-courses">
-      <h2>Courses {cid}</h2>
+      <h2 className="text-danger">Course {cid}</h2> 
       <hr />
-      <table>
-        <tbody>
-          <tr>
-            <td valign="top" width="200">
-              <CourseNavigation />
-            </td>
-            <td valign="top" width="100%">
-              {children}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="d-flex">
+        {/* Sidebar: hidden on < md */}
+        <div className="d-none d-md-block me-3" style={{ minWidth: 220 }}>
+          <CourseNavigation />
+        </div>
+
+        {/* Main content */}
+        <div className="flex-fill">{children}</div>
+      </div>
     </div>
   );
 }
