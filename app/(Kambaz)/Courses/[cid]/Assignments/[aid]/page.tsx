@@ -42,6 +42,9 @@ export default function AssignmentEditor() {
           <Col className="text-start col-8">
             <FormSelect>
               <option value='assignments'>ASSIGNMENTS</option>
+              <option value='quizzes'>Quizzes</option>
+              <option value="EXAMS">EXAMS</option>
+              <option value="PROJECTS">PROJECTS</option>
             </FormSelect>
           </Col>
         </Row>
@@ -52,6 +55,7 @@ export default function AssignmentEditor() {
           <Col className="text-start col-8">
             <FormSelect>
               <option value="percentage">Percentage</option>
+              <option value="points">Points</option>
             </FormSelect>
           </Col>
         </Row>
@@ -63,6 +67,7 @@ export default function AssignmentEditor() {
             <div className="border rounded p-2">
               <FormSelect>
                 <option value="online">Online</option>
+                <option value="On-paper">On paper</option>
               </FormSelect>
               <br />
               <div className="mb-2"><strong>Online Entry Options</strong></div>

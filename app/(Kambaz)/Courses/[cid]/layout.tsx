@@ -3,7 +3,7 @@ import CourseNavigation from "./Navigation";
 
 type Props = {
   children: ReactNode;
-  params: Promise<{ cid: string }>; 
+  params: Promise<{ cid: string }>;
 };
 
 export default async function CoursesLayout({ children, params }: Props) {
@@ -11,7 +11,7 @@ export default async function CoursesLayout({ children, params }: Props) {
 
   return (
     <div id="wd-courses">
-      <h2 className="text-danger">Course {cid}</h2> 
+      <h2 className="text-danger">Course {cid}</h2>
       <hr />
       <div className="d-flex">
         {/* Sidebar: hidden on < md */}

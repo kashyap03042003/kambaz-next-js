@@ -31,32 +31,43 @@ export default function PeopleTable() {
           <tr>
             <td className="wd-full-name text-nowrap">
               <FaUserCircle className="me-2 fs-1 text-secondary" />
-              <span className="wd-first-name">Bruce</span>{" "}
-              <span className="wd-last-name">Wayne</span>
+              <span className="wd-first-name">Clark</span>{" "}
+              <span className="wd-last-name">Kent</span>
             </td>
-            <td>001234562B</td><td>S101</td><td>TA</td>
-            <td>2020-10-02</td><td>05:12:44</td>
+            <td>001234565C</td><td>S104</td><td>STUDENT</td>
+            <td>2021-01-15</td><td>09:21:10</td>
           </tr>
 
           <tr>
             <td className="wd-full-name text-nowrap">
               <FaUserCircle className="me-2 fs-1 text-secondary" />
-              <span className="wd-first-name">Steve</span>{" "}
-              <span className="wd-last-name">Rogers</span>
+              <span className="wd-first-name">Diana</span>{" "}
+              <span className="wd-last-name">Prince</span>
             </td>
-            <td>001234563S</td><td>S102</td><td>STUDENT</td>
-            <td>2020-10-03</td><td>08:33:11</td>
+            <td>001234566D</td><td>S105</td><td>TA</td>
+            <td>2021-02-20</td><td>11:45:33</td>
           </tr>
 
           <tr>
             <td className="wd-full-name text-nowrap">
               <FaUserCircle className="me-2 fs-1 text-secondary" />
-              <span className="wd-first-name">Natasha</span>{" "}
-              <span className="wd-last-name">Romanoff</span>
+              <span className="wd-first-name">Barry</span>{" "}
+              <span className="wd-last-name">Allen</span>
             </td>
-            <td>001234564N</td><td>S103</td><td>FACULTY</td>
-            <td>2020-10-04</td><td>12:05:27</td>
+            <td>001234567B</td><td>S106</td><td>FACULTY</td>
+            <td>2021-03-10</td><td>14:12:05</td>
           </tr>
+
+          <tr>
+            <td className="wd-full-name text-nowrap">
+              <FaUserCircle className="me-2 fs-1 text-secondary" />
+              <span className="wd-first-name">Arthur</span>{" "}
+              <span className="wd-last-name">Curry</span>
+            </td>
+            <td>001234568A</td><td>S107</td><td>STUDENT</td>
+            <td>2021-04-05</td><td>16:30:42</td>
+          </tr>
+
         </tbody>
       </Table>
     </div>

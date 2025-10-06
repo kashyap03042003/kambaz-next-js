@@ -2,7 +2,8 @@
 
 import { Button, Dropdown } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa6";
-import GreencheckMark from "./GreenCheckMark"
+import GreencheckMark from "./GreenCheckMark";
+import StopSign from "./StopSign";
 export default function ModulesControls() {
   return (
     <div id="wd-modules-controls" className="text-nowrap clearfix mb-3">
@@ -37,10 +38,10 @@ export default function ModulesControls() {
             <GreencheckMark /> Publish modules only
           </Dropdown.Item>
           <Dropdown.Item id="wd-unpublish-all-modules-and-items">
-            Unpublish all modules and items
+            <StopSign /> Unpublish all modules and items
           </Dropdown.Item>
           <Dropdown.Item id="wd-unpublish-modules-only">
-            Unpublish modules only
+            <StopSign /> Unpublish modules only
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
